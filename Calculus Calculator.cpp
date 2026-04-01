@@ -54,7 +54,7 @@ int main(){
 		}if(PF[degree]!=0) printf("%d\n",PF[degree]);
 		else printf("\n");
 		printf("Please choose the mode you want\n");
-		printf("1.Differntial\n2.Integration\n");
+		printf("1.Differentiation\n2.Integration\n");
 		while(1){
 			scanf("%d",&mode);
 			if(mode==1||mode==2)
@@ -111,9 +111,10 @@ int main(){
 					int exp = degree-i+1;
                     result += PF[i] * (pow(ul, exp) - pow(ll, exp)) / exp;
 				}
-				printf("The value of the definite integral from %d to %d of the polynomial is = %.3f",ll,ul,result);
+				printf("The value of the definite integral "); 
+				printf("from %d to %d of the polynomial is = %.3f",ll,ul,result);
 			}else{//indefinite integration
-				for(int i;i<=degree;i++){
+				for(int i=0;i<=degree;i++){
 					int exp=degree-i+1;
         			if(PF[i]==0) continue;
        				if(i>0&&PF[i]>0) printf("+ ");
@@ -141,20 +142,20 @@ int main(){
 			scanf("%d",&function);
 		}
 		const char *F[6]={"sin","cos","tan","cot","sec","csc"};
-		if(((function==3||function==5)&&degree%180==90)||((function==4||function==6)&&degree%180==0)){//undefied
-			printf("%s£c is undefied in %d¢X\n",F[function-1],degree);
+		if(((function==3||function==5)&&degree%180==90)||((function==4||function==6)&&degree%180==0)){//undefined
+			printf("%sÎ¸ is undefined in %dÂ°\n",F[function-1],degree);
 			return 0;			
 		}
 		else{
-			if(function==1) printf("sin%d¢X = %.3f\n",degree,sin(radians));
- 			else if(function==2) printf("cos%d¢X = %.3f\n",degree,cos(radians));
-			else if(function==3) printf("tan%d¢X = %.3f\n",degree,tan(radians));
-			else if(function==4) printf("cot%d¢X = %.3f\n",degree,1.0/tan(radians));
-			else if(function==5) printf("sec%d¢X = %.3f\n",degree,1.0/cos(radians));
-			else printf("csc%d¢X = %.3f\n",degree,1.0/sin(radians));	
+			if(function==1) printf("sin%dÂ° = %.3f\n",degree,sin(radians));
+ 			else if(function==2) printf("cos%dÂ° = %.3f\n",degree,cos(radians));
+			else if(function==3) printf("tan%dÂ° = %.3f\n",degree,tan(radians));
+			else if(function==4) printf("cot%dÂ° = %.3f\n",degree,1.0/tan(radians));
+			else if(function==5) printf("sec%dÂ° = %.3f\n",degree,1.0/cos(radians));
+			else printf("csc%dÂ° = %.3f\n",degree,1.0/sin(radians));	
 		}
 		printf("Please choose the mode you want\n");
-		printf("1.Differntial\n2.Integration\n");
+		printf("1.Differentiation\n2.Integration\n");
 		while(1){
 			scanf("%d",&mode);
 			if(mode==1||mode==2)
@@ -162,20 +163,20 @@ int main(){
 			printf("Please enter a number, either 1 or 2\n");
 		}
 		if(mode==1){//differentiation
-			if(function==1) printf("d(sin%d¢X)/d£c = cos%d¢X = %.3f\n",degree,degree,cos(radians));
-			else if(function==2) printf("d(cos%d¢X)/d£c = -sin%d¢X = %.3f\n",degree,degree,-sin(radians));
-			else if(function==3) printf("d(tan%d¢X)/d£c = (sec%d¢X)^2 = %.3f\n",degree,degree,1.0/cos(radians)/cos(radians));
-			else if(function==4) printf("d(cot%d¢X)/d£c = -(csc%d¢X)^2 = %.3f\n",degree,degree,-1.0/sin(radians)/sin(radians));
-			else if(function==5) printf("d(sec%d¢X)/d£c = sec%d¢X(tan%d¢X) = %.3f\n",degree,degree,degree,1.0/cos(radians)*tan(radians));
-			else printf("d(csc%d¢X)/d£c = -csc%d¢X(cot%d¢X) = %.3f\n",degree,degree,degree,-1.0/sin(radians)/tan(radians));
+			if(function==1) printf("d(sin%dÂ°)/dÎ¸ = cos%dÂ° = %.3f\n",degree,degree,cos(radians));
+			else if(function==2) printf("d(cos%dÂ°)/dÎ¸ = -sin%dÂ° = %.3f\n",degree,degree,-sin(radians));
+			else if(function==3) printf("d(tan%dÂ°)/dÎ¸ = (sec%dÂ°)^2 = %.3f\n",degree,degree,1.0/cos(radians)/cos(radians));
+			else if(function==4) printf("d(cot%dÂ°)/dÎ¸ = -(csc%dÂ°)^2 = %.3f\n",degree,degree,-1.0/sin(radians)/sin(radians));
+			else if(function==5) printf("d(sec%dÂ°)/dÎ¸ = sec%dÂ°(tan%dÂ°) = %.3f\n",degree,degree,degree,1.0/cos(radians)*tan(radians));
+			else printf("d(csc%dÂ°)/dÎ¸ = -csc%dÂ°(cot%dÂ°) = %.3f\n",degree,degree,degree,-1.0/sin(radians)/tan(radians));
 		}
 		else{//integration
-			if(function==1) printf("¡ì sin%d¢X d£c = -cos%d¢X + C = %.3f + C\n",degree,degree,-cos(radians));
-			else if(function==2) printf("¡ì cos%d¢X d£c = sin%d¢X + C = %.3f + C\n",degree,degree,sin(radians));
-			else if(function==3) printf("¡ì tan%d¢X d£c = -ln¡ýcos%d¢X¡ý + C = %.3f + C\n",degree,degree,-log(fabs(cos(radians))));
-			else if(function==4) printf("¡ì cot%d¢X d£c = ln¡ýsin%d¢X¡ý + C = %.3f + C\n",degree,degree,log(fabs(sin(radians))));
-			else if(function==5) printf("¡ì sec%d¢X d£c = ln¡ýsec%d¢X + tan%d¢X¡ý + C = %.3f + C\n",degree,degree,degree,log(fabs(1.0/cos(radians)+tan(radians))));
-			else printf("¡ì csc%d¢X d£c = ln¡ýcsc%d¢X - cot%d¢X¡ý + C = %.3f + C\n",degree,degree,degree,log(fabs(1.0/sin(radians)-1.0/tan(radians))));			
+			if(function==1) printf("âˆ« sin%dÂ° dÎ¸ = -cos%dÂ° + C = %.3f + C\n",degree,degree,-cos(radians));
+			else if(function==2) printf("âˆ« cos%dÂ° dÎ¸ = sin%dÂ° + C = %.3f + C\n",degree,degree,sin(radians));
+			else if(function==3) printf("âˆ« tan%dÂ° dÎ¸ = -lnâˆ£cos%dÂ°âˆ£ + C = %.3f + C\n",degree,degree,-log(fabs(cos(radians))));
+			else if(function==4) printf("âˆ« cot%dÂ° dÎ¸ = lnâˆ£sin%dÂ°âˆ£ + C = %.3f + C\n",degree,degree,log(fabs(sin(radians))));
+			else if(function==5) printf("âˆ« sec%dÂ° dÎ¸ = lnâˆ£sec%dÂ° + tan%dÂ°âˆ£ + C = %.3f + C\n",degree,degree,degree,log(fabs(1.0/cos(radians)+tan(radians))));
+			else printf("âˆ« csc%dÂ° dÎ¸ = lnâˆ£csc%dÂ° - cot%dÂ°âˆ£ + C = %.3f + C\n",degree,degree,degree,log(fabs(1.0/sin(radians)-1.0/tan(radians))));			
 		}
 	}
 } 
